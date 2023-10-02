@@ -2,7 +2,6 @@
 
 import * as z from 'zod';
 import { useForm } from 'react-hook-form';
-import { useOrganization } from '@clerk/nextjs';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -19,7 +18,6 @@ import { Input } from '@/components/ui/input';
 import { CommentValidation } from '@/lib/validations/thread';
 import Image from 'next/image';
 import { addCommentToThread } from '@/lib/actions/thread.action';
-// import { createThread } from '@/lib/actions/thread.action';
 
 interface Props {
 	threadId: string;
@@ -28,7 +26,6 @@ interface Props {
 }
 
 const Comment = ({ threadId, currentUserImg, currentUserId }: Props) => {
-	const router = useRouter();
 	const pathname = usePathname();
 
 	const form = useForm({
