@@ -35,7 +35,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 									alt={tab.label}
 									height={24}
 									width={24}
-									className='object-contain'
+									className='object-contain h-auto w-auto'
 								/>
 								<p className='max-sm:hidden'>{tab.label}</p>
 

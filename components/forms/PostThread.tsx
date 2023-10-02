@@ -29,6 +29,8 @@ function PostThread({ userId }: Props) {
 	const pathname = usePathname();
 	const { organization } = useOrganization();
 
+	console.log('organization', organization);
+
 	const form = useForm({
 		resolver: zodResolver(ThreadValidation),
 		defaultValues: {
@@ -38,10 +40,12 @@ function PostThread({ userId }: Props) {
 	});
 
 	const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+		console.log('ORG ID', organization);
+
 		await createThread({
 			text: values.thread,
 			author: userId,
-			communityId: null,
+			communityId: organization ? organization.id : null,
 			path: pathname,
 		});
 		router.push('/');
